@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import constantGetterFromASCIIMath from '../../parser';
 
 const ExpressionField = ({expressionChangeFunction, variablesChangeFunction}) => {
@@ -14,6 +15,23 @@ const ExpressionField = ({expressionChangeFunction, variablesChangeFunction}) =>
         
 
     );
-}
+};
+
+ExpressionField.propTypes = {
+    /**
+     * This function is subscribed everytime the user change the value on the input. It is useful to change the current value on the expression display
+     */
+    expressionChangeFunction: PropTypes.func,
+    /**
+     * This function is subscribed everytime the user change the value on the input. It is useful to change the current list of variables.
+     */
+    variablesChangeFunction: PropTypes.func,
+  };
+  
+ExpressionField.defaultProps = {
+    expressionChangeFunction: null,
+    variablesChangeFunction: null,
+};
+  
 
 export default ExpressionField; 

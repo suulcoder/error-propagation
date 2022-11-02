@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Variable = ({ name, value, uncertainty, variableModified}) => {
     return(
@@ -23,5 +24,31 @@ const Variable = ({ name, value, uncertainty, variableModified}) => {
         </tr>
     );
 }
+
+Variable.propTypes = {
+    /**
+     * Name of the variable
+     */
+     name: PropTypes.string,
+    /**
+     * Value of the variable
+     */
+     value: PropTypes.string,
+    /**
+     * Uncertainty of the variable
+     */
+    uncertainty: PropTypes.string,
+    /**
+    * This function is subscribed everytime the user change any value on the variable. 
+    */
+    variableModified: PropTypes.func,
+  };
+  
+  Variable.defaultProps = {
+    name: null,
+    value: null,
+    uncertainty: null, 
+    variableModified: null,
+};
 
 export default Variable;
