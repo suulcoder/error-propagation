@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Result = ({ expressionString, variablesList, prevResultDic, calculateResultFunction}) => {
     return(
-        <div className="pv2 ph3 flex flex-column justify-start items-center w-100" role="ExpressionResult">
+        <div className="pv2 ph3 flex flex-column justify-start items-center w-100">
             <input 
                 onClick={(e) => calculateResultFunction(getResult(expressionString,variablesList,prevResultDic))} 
                 className="f6 b br3 b--black ph3 pv2 input-reset ba bg-transparent grow pointer dib" 
