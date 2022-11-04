@@ -10,6 +10,12 @@ const Header = () => {
             </div>
         </nav>
     );
-}
+};
+
+Header.propTypes = {
+};
+  
+Header.defaultProps = {
+};
 
 export default Header;

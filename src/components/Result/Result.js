@@ -1,9 +1,10 @@
 import React from 'react';
 import getResult from '../../propagation'
+import PropTypes from 'prop-types';
 
 const Result = ({ expressionString, variablesList, prevResultDic, calculateResultFunction}) => {
     return(
-        <div className="pv2 ph3 flex flex-column justify-start items-center w-100" role="ExpressionResult">
+        <div className="pv2 ph3 flex flex-column justify-start items-center w-100">
             <input 
                 onClick={(e) => calculateResultFunction(getResult(expressionString,variablesList,prevResultDic))} 
                 className="f6 b br3 bg-green white b--green ph3 pv2 input-reset ba bg-transparent grow pointer dib" 
@@ -35,5 +36,32 @@ const Result = ({ expressionString, variablesList, prevResultDic, calculateResul
         </div>
     );
 }
+
+Result.propTypes = {
+    /**
+    * Expression submitted by the user
+    */
+    expressionString: PropTypes.string,
+    /**
+    * List of tuples of the following structure: (<Variable Name>, <Variable Value>, <Variable Uncertainty>) 
+    */
+    variablesList: PropTypes.object,
+    /**
+    * Dictionary of the following structure: {<Result>, <Uncertainty>, <RMSE>}
+    */
+    prevResultDic: PropTypes.object,
+    /**
+    * This function is subscribed everytime the user change any value on the variable. 
+    */
+    calculateResultFunction: PropTypes.func,
+  };
+  
+Result.defaultProps = {
+    expressionString: null,
+    variablesList: null,
+    prevResultDic: null,
+    calculateResultFunction: null,
+};
+  
 
 export default Result;
